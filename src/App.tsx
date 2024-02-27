@@ -3,6 +3,7 @@ import Header from './components/Header'
 import InfoTask from './components/InfoTask'
 import WithoutTask from './components/WithoutTasks'
 import { v4 } from 'uuid'
+import Tasks from './components/Tasks'
 
 export interface TasksType {
   id: string
@@ -22,7 +23,7 @@ function App() {
       <Header onAddNewTask={addNewTask} />
       <div className="flex-1 bg-gray-900 px-5 flex flex-col items-center">
         <InfoTask />
-        <WithoutTask />
+        {tasks.length ? <Tasks tasks={tasks} /> : <WithoutTask />}
       </div>
     </div>
   )
