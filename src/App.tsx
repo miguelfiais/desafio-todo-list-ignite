@@ -33,7 +33,7 @@ function App() {
     <div className="flex flex-col w-full min-h-screen">
       <Header onAddNewTask={addNewTask} />
       <div className="flex-1 bg-gray-900 px-5 flex flex-col items-center">
-        <InfoTask />
+        <InfoTask tasks={tasks} />
         {tasks.length ? (
           <Tasks
             tasks={tasks}
