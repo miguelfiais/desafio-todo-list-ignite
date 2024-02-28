@@ -24,7 +24,7 @@ const Search = ({ onAddNewTask }: SearchProps) => {
       <input
         type="text"
         placeholder="Adicione uma nova tarefa"
-        className="w-full rounded-lg bg-gray-800 pl-2"
+        className="w-full rounded-lg bg-gray-800 pl-2 text-gray-300"
         value={contentTask}
         onChange={handleChange}
       />

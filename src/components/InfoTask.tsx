@@ -16,7 +16,7 @@ const InfoTask = ({ tasks }: InfoTaskProps) => {
       <p className="text-purple-400  font-bold flex items-center gap-2">
         Concluídas
         <span className="bg-gray-500 text-white py-[2px] px-2 rounded-full text-xs">
-          {tasksCompleted.length}
+          {tasksCompleted.length} de {tasks.length}
         </span>
       </p>
     </div>

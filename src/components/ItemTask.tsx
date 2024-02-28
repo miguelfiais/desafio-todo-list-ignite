@@ -24,7 +24,12 @@ const ItemTask = ({ task, completeTask, removeTask }: ItemTaskProps) => {
         onChange={handleCompleteTask}
         defaultChecked={task.isCompleted}
       />
-      <p className="text-white text-sm break-all">{task.content}</p>
+      <p
+        data-isCompleted={task.isCompleted}
+        className="text-white text-sm break-all data-[isCompleted=true]:line-through data-[isCompleted=true]:text-gray-400"
+      >
+        {task.content}
+      </p>
       <button onClick={handleRemoveTask}>
         <img src={trash} alt="lixeira" />
       </button>
