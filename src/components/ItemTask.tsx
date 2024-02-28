@@ -4,11 +4,15 @@ import trash from '../assets/trash.png'
 interface ItemTaskProps {
   task: TasksType
   completeTask: (taskId: string) => void
+  removeTask: (taskId: string) => void
 }
 
-const ItemTask = ({ task, completeTask }: ItemTaskProps) => {
+const ItemTask = ({ task, completeTask, removeTask }: ItemTaskProps) => {
   function handleCompleteTask() {
     completeTask(task.id)
+  }
+  function handleRemoveTask() {
+    removeTask(task.id)
   }
   return (
     <div
@@ -21,7 +25,7 @@ const ItemTask = ({ task, completeTask }: ItemTaskProps) => {
         defaultChecked={task.isCompleted}
       />
       <p className="text-white text-sm break-all">{task.content}</p>
-      <button onClick={handleCompleteTask}>
+      <button onClick={handleRemoveTask}>
         <img src={trash} alt="lixeira" />
       </button>
     </div>

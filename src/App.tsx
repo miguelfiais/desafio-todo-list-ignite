@@ -25,13 +25,21 @@ function App() {
     )
   }
 
+  function removeTask(taskId: string) {
+    setTasks((prev) => prev.filter((task) => task.id !== taskId))
+  }
+
   return (
     <div className="flex flex-col w-full min-h-screen">
       <Header onAddNewTask={addNewTask} />
       <div className="flex-1 bg-gray-900 px-5 flex flex-col items-center">
         <InfoTask />
         {tasks.length ? (
-          <Tasks tasks={tasks} completeTask={completeTask} />
+          <Tasks
+            tasks={tasks}
+            completeTask={completeTask}
+            removeTask={removeTask}
+          />
         ) : (
           <WithoutTask />
         )}
