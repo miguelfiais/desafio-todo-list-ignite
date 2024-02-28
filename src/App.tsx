@@ -17,13 +17,24 @@ function App() {
   function addNewTask(content: string) {
     setTasks([...tasks, { id: v4(), content, isCompleted: false }])
   }
+  function completeTask(taskId: string) {
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === taskId ? { ...task, isCompleted: !task.isCompleted } : task,
+      ),
+    )
+  }
 
   return (
     <div className="flex flex-col w-full min-h-screen">
       <Header onAddNewTask={addNewTask} />
       <div className="flex-1 bg-gray-900 px-5 flex flex-col items-center">
         <InfoTask />
-        {tasks.length ? <Tasks tasks={tasks} /> : <WithoutTask />}
+        {tasks.length ? (
+          <Tasks tasks={tasks} completeTask={completeTask} />
+        ) : (
+          <WithoutTask />
+        )}
       </div>
     </div>
   )

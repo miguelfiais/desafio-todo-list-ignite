@@ -1,23 +1,16 @@
 import { TasksType } from '../App'
-import trash from '../assets/trash.png'
+import ItemTask from './ItemTask'
 
 interface TasksProps {
   tasks: TasksType[]
+  completeTask: (taskId: string) => void
 }
-const Tasks = ({ tasks }: TasksProps) => {
+
+const Tasks = ({ tasks, completeTask }: TasksProps) => {
   return (
     <div className="flex flex-col gap-2 w-full max-w-2xl">
       {tasks.map((task) => (
-        <div
-          key={task.id}
-          className="p-4 flex items-center justify-between gap-2 bg-gray-800 rounded-lg"
-        >
-          <input type="checkbox" />
-          <p className="text-white text-sm break-all">{task.content}</p>
-          <button>
-            <img src={trash} alt="lixeira" />
-          </button>
-        </div>
+        <ItemTask key={task.id} task={task} completeTask={completeTask} />
       ))}
     </div>
   )
